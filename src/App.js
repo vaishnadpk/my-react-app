@@ -7,9 +7,10 @@ function App() {
   const [city, setCity] = useState("Helsingborg");
   const [canShowTemp, setCanShowTem] = useState(false);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   React.useEffect(() => {
     setCanShowTem(city.length > 0);
-  }, []);
+  });
 
   function handleSubmit(event) {
     event.preventDefault();
