@@ -43,3 +43,13 @@ p {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: rgb(69, 68, 68);
 }
+
+#currentbtn {
+  margin-left: 5px;
+}
+
+button {
+  height: 46px;
+  border-radius: 0 !important;
+  margin-bottom: 3px;
+}

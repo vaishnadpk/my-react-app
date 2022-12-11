@@ -1,12 +1,15 @@
-import "./App.css";
-import "./App.css";
 import React, { useState } from "react";
 import Weather from "./Weather";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
 
 function App() {
-  const [city, setCity] = useState(null);
+  const [city, setCity] = useState("Helsingborg");
   const [canShowTemp, setCanShowTem] = useState(false);
+
+  React.useEffect(() => {
+    setCanShowTem(city.length > 0);
+  }, []);
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -14,7 +17,9 @@ function App() {
   }
   function handleSearch(event) {
     event.preventDefault();
-    setCity(event.target.value);
+    if (event.target.value !== "") {
+      setCity(event.target.value);
+    }
   }
 
   function showWeather() {
@@ -69,7 +74,7 @@ function App() {
           autocomplete="off"
           autofocus="on"
           id="searchcity"
-          onChange={handleSearch}
+          onBlur={handleSearch}
         />
         <button type="submit" className="btn btn-info" value="search">
           Search
@@ -79,6 +84,16 @@ function App() {
         </button>
       </form>
       {showWeather()}
+      <small>
+        <a
+          href="https://github.com/vaishnadpk/my-react-app"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Open-source code
+        </a>
+        , by Vaishna Upendran
+      </small>
     </div>
   );
 }
